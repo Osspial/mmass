@@ -39,6 +39,7 @@ fn main() {
             Token::Element(element) => {
                 mass += active_element.map(|e| e.mass() * active_multiplier.unwrap_or(1.0)).unwrap_or(0.0);
                 active_element = Some(element);
+                active_multiplier = None;
             },
             Token::Count(num) => active_multiplier = Some(num as f64)
         }
